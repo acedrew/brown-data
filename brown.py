@@ -20,7 +20,11 @@ class brown_data:
     def next(self):
         factor = self.max_change * 2
         difference = self.max_change - (random.random() * factor)
-        self.num = self.num + difference
+        newNum = self.num + difference
+        if newNum < -self.scale or newNum > self.scale:
+            self.num = self.num - difference
+        else:
+            self.num = newNum
         return self.num
 
 if(__name__ == "__main__"):
