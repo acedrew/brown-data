@@ -8,23 +8,21 @@ class saw(ramp.ramp):
         ramp.ramp.__init__(self, scale, steps, pos)
         self.forward = forward
         if forward:
+            self.oper = o.ge
             if pos:
                 self.comp = scale * 2
                 self.reset = 0
-                self.oper = o.ge
             else:
                 self.comp = scale
                 self.reset = -steps
-                self.oper = o.ge
         else:
+            self.oper = o.le
             if pos:
                 self.comp = 0
                 self.reset = steps * 2
-                self.oper = o.le
             else:
                 self.comp = -scale
                 self.reset = steps
-                self.oper = o.le
         self.stepn = self.reset
 
     def step(self):
