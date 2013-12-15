@@ -5,9 +5,9 @@ import ramp
 
 
 class brown_sine:
-    def __init__(self, scale, brown_scale, steps, max_brown):
+    def __init__(self, scale, brown_scale, steps, max_brown, pos):
         self.brown = brown.brown_data(brown_scale, max_brown)
-        self.sine = sine.sine(scale, steps)
+        self.sine = sine.sine(scale, steps, pos)
         self.num = 0
 
     def step(self):
