@@ -5,7 +5,13 @@ import ramp
 
 
 class brown_sine:
-    def __init__(self, scale, brown_scale, steps, max_brown, pos):
+
+    """Provides the sum of a sine wave with amplitude n(scale), with resolution
+    n(steps) and random component with amplitude n(brown_scale) and maximum
+    step delta of random of n(max_brown) either centered around zero(pos=False)
+    or centered around amplitude/2(pos=True)"""
+
+    def __init__(self, scale, brown_scale, steps, max_brown, pos=False):
         self.brown = brown.brown_data(brown_scale, max_brown)
         self.sine = sine.sine(scale, steps, pos)
         self.num = 0
@@ -16,6 +22,12 @@ class brown_sine:
 
 
 class brown_ramp:
+
+    """Provides the sum of a ramp function of amplitude n(scale) with
+    resolution n(steps) and random component with amplitude n(brown_scale) and
+    maximum step delta of random n(max_brown) either centered around
+    zero(pos=False) or centered on amplitude/2(pos=False)"""
+
     def __init__(self, scale, brown_scale, steps, max_brown, pos=True):
         self.brown = brown.brown_data(brown_scale, max_brown)
         self.ramp = ramp.ramp(scale, steps, pos)
@@ -26,6 +38,6 @@ class brown_ramp:
         return self.num
 
 if __name__ == "__main__":
-    test = brown_ramp(1, 0.1, 100, 0.05, False)
-    for _ in itertools.repeat(None, 500):
-        print test.step()
+    test_sine = brown_sine(1, 0.1, 100, 0.01, False)
+    for _ in itertools.repeat(None, 1300):
+        print test_sine.step()
