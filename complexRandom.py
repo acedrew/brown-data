@@ -57,14 +57,17 @@ class brown_saw:
         self.num = self.saw.step() + self.brown.random()
         return self.num
 
-
 if __name__ == "__main__":
-    test_sine = brown_sine(1, 0.2, 100, 0.02, False)
-    for _ in itertools.repeat(None, 1300):
-        print test_sine.step()
-    test_ramp = brown_ramp(1, 0.2, 100, 0.02, False)
-    for _ in itertools.repeat(None, 1300):
-        print test_ramp.step()
-    test_saw = brown_saw(1, 0.2, 100, 0.02, False, False)
-    for _ in itertools.repeat(None, 1300):
-        print test_saw.step()
+    import timeit
+
+    def runTest():
+        test_sine = brown_sine(1, 0.2, 100, 0.02, False)
+        for _ in itertools.repeat(None, 1300):
+            print test_sine.step()
+        test_ramp = brown_ramp(1, 0.2, 100, 0.02, False)
+        for _ in itertools.repeat(None, 1300):
+            print test_ramp.step()
+        test_saw = brown_saw(1, 0.2, 100, 0.02, False, False)
+        for _ in itertools.repeat(None, 1300):
+            print test_saw.step()
+    print timeit.timeit('runTest()', 'from __main__ import runTest', number=100)
