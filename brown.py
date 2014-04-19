@@ -30,4 +30,4 @@ class brown_data:
 if(__name__ == "__main__"):
     test = brown_data(10)
     for _ in itertools.repeat(None, 2000):
-        print test.random()
+        print(test.random())
