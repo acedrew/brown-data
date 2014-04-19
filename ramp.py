@@ -1,7 +1,10 @@
 import itertools
 
 
-class ramp:
+class saw:
+
+    """provides a sawtooth waveform."""
+
     def __init__(self, scale=1, steps=100, pos=True):
         self.scale = scale
         self.steps = steps
@@ -27,6 +30,6 @@ class ramp:
         return self.num
 
 if(__name__ == "__main__"):
-    test = ramp(10, 40, False)
+    test = saw(10, 40, False)
     for _ in itertools.repeat(None, 200):
-        print test.step()
+        print(test.step())

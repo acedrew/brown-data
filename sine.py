@@ -23,4 +23,4 @@ class sine:
 if __name__ == "__main__":
     test = sine(100)
     for _ in itertools.repeat(1, 200):
-        print test.step()
+        print(test.step())
