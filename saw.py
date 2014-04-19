@@ -33,6 +33,6 @@ class saw(ramp.ramp):
         return self.num
 
 if(__name__ == "__main__"):
-    test = ramp(10, 40, False)
+    test = saw(10, 40, False)
     for _ in itertools.repeat(None, 200):
         print test.step()
